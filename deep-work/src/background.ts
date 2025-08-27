@@ -1,5 +1,6 @@
 // src/background.ts
-import { getActive, setActive, ActiveSession } from "~lib/storage"
+import { getActive, setActive } from "./lib/storage"
+import type { ActiveSession, SessionType } from "./lib/storage"
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.alarms.create("tick", { periodInMinutes: 1 / 60 }) // ~1s
@@ -50,7 +51,7 @@ async function endSession(reason: "completed" | "stopped") {
     reason === "completed" ? "Focus complete" : "Session stopped"
   chrome.notifications.create({
     type: "basic",
-    iconUrl: "assets/icon.png",
+    iconUrl: "assets/deepWorkIcon.png",
     title,
     message: `Task: ${s.task}`
   })

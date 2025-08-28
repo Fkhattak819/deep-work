@@ -1,10 +1,9 @@
-// src/lib/storage.ts
 export type SessionType = "pomodoro" | "flow" | "quick" | "custom"
 
 export type ActiveSession = {
   task: string
-  startedAt: number        // ms epoch
-  durationMs: number       // planned duration
+  startedAt: number
+  durationMs: number
   type: SessionType
 }
 
